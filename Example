@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CSS Only Scroll To Top</title>
+<style>
+/**
+ Implement Scroll to top with CSS-only
+ https://penote.com/css/implement-scroll-to-top-with-css-only/
+**/
+@media screen and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+body{ position:relative; }
+.scroll-to-top-wrapper {
+  position: absolute;
+  top: 110vh;
+  right: 30px;
+  bottom: 0;
+}
+.scroll-to-top-link {
+  position: sticky;
+  left: calc(100% - 48px);
+  top: calc(100vh - 5rem);
+}
+</style>
+</head>
+<body>
+  <main>
+  <article>
+    <!-- long form content here -->
+  </article>
+  <!-- Scroll to top link -->
+  <div class="scroll-to-top-wrapper">
+    <a href="#top" class="scroll-to-top-link" aria-label="Scroll to Top">Top</a>
+  </div>
+<!-- Scroll to top link -->
+</main>
+</body>
+</html>
