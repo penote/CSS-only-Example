@@ -1,3 +1,4 @@
+HTML Structure
 <!-- Drawer Navigation -->
 <div class="cssonly-drawer">
 <input type="checkbox" id="drawer-control" class="cssonly-drawer-control" />
