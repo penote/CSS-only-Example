@@ -1,0 +1,129 @@
+HTML Structure
+<section class="cssonly-slider" aria-labelledby="slideraria">
+  <h3 id="slideraria" class="visually-hidden">Image Gallery</h3>
+  <input type="radio" name="slider" id="slide1" checked />
+  <input type="radio" name="slider" id="slide2"/>
+  <input type="radio" name="slider" id="slide3"/>
+  <input type="radio" name="slider" id="slide4"/>
+  <input type="radio" name="slider" id="slide5"/>
+  <div class="slides">
+    <ul class="inner">
+      <li role="group" aria-label="slide 1 of 5">
+        <img src="http://farm9.staticflickr.com/8195/8098750703_797e102da2_z.jpg" />
+      </li>
+      <li role="group" aria-label="slide 2 of 5">
+        <img src="http://farm9.staticflickr.com/8043/8098759802_6da1ff5538_z.jpg" />
+      </li>
+      <li role="group" aria-label="slide 3 of 5">
+        <img src="http://farm9.staticflickr.com/8195/8098750703_797e102da2_z.jpg" />
+      </li>
+      <li role="group" aria-label="slide 4 of 5">
+        <img src="http://farm9.staticflickr.com/8055/8098750623_66292a35c0_z.jpg" />
+      </li>
+      <li role="group" aria-label="slide 5 of 5">
+        <img src="http://farm9.staticflickr.com/8335/8098750377_2522e75807_z.jpg" />
+      </li>
+    </ul>
+  </div>
+  <div class="control">
+    <label for="slide1"></label>
+    <label for="slide2"></label>
+    <label for="slide3"></label>
+    <label for="slide4"></label>
+    <label for="slide5"></label>
+  </div>
+</section>
+
+<style>
+.cssonly-slider{
+    margin:0 auto;
+	text-align:center;
+	position:relative;
+	max-width:600px
+}
+.cssonly-slider:focus-within{
+    outline: solid 1px blue;
+}
+.cssonly-slider > input[type="radio"]{
+    position:absolute;
+	left:-200vw;
+}
+.cssonly-slider > input:nth-of-type(1):checked ~  .slides .inner{margin-left:0;}
+.cssonly-slider > input:nth-of-type(2):checked ~ .slides .inner{margin-left:-100%;}
+.cssonly-slider > input:nth-of-type(3):checked ~ .slides .inner{margin-left:-200%;}
+.cssonly-slider > input:nth-of-type(4):checked ~ .slides .inner{margin-left:-300%;}
+.cssonly-slider > input:nth-of-type(5):checked ~ .slides .inner{margin-left:-400%;}
+
+.cssonly-slider > .slides li img{
+    width:100%
+}
+.cssonly-slider > .slides .inner{
+    width:500%;
+    line-height:0;
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+.cssonly-slider > .slides li{
+    width:20%;
+    float:left
+}
+.cssonly-slider > .control{
+    width: 100%;
+	-webkit-transform: translate3d(0, -50%, 0);
+	        transform: translate3d(0, -50%, 0);
+	position: absolute;
+	top: 50%;
+}
+.cssonly-slider > .control label{
+    display:none;
+    width:48px;
+    height:48px;
+    opacity:0.5;
+	cursor:pointer;
+}
+.cssonly-slider > .control label:hover{
+    opacity:0.8
+}
+
+/**Limit 5 Image Only**/
+.cssonly-slider > input:nth-of-type(1):checked ~ .control label:nth-child(2),
+.cssonly-slider > input:nth-of-type(2):checked ~ .control label:nth-child(3),
+.cssonly-slider > input:nth-of-type(3):checked ~ .control label:nth-child(4),
+.cssonly-slider > input:nth-of-type(4):checked ~ .control label:nth-child(5),
+.cssonly-slider > input:nth-of-type(5):checked ~ .control label:nth-child(6){
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z'/%3E%3C/svg%3E") no-repeat;
+    float:right;
+    margin:0 12px 0 0;
+    display:block;
+}
+.cssonly-slider > input::nth-last-of-type():checked ~ .control label{
+	display:none;
+}
+/**Limit 5 Image Only**/
+.cssonly-slider > input:nth-of-type(2):checked ~ .control label:nth-child(1),
+.cssonly-slider > input:nth-of-type(3):checked ~ .control label:nth-child(2),
+.cssonly-slider > input:nth-of-type(4):checked ~ .control label:nth-child(3),
+.cssonly-slider > input:nth-of-type(5):checked ~ .control label:nth-child(4){
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath d='M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z'/%3E%3C/svg%3E") no-repeat;
+    float:left;
+    margin:0 0 0 12px;
+    display:block;
+}
+
+.cssonly-slider > .slides{
+    position:relative;
+    padding:0;
+    border:0;
+	width: 100%;
+	overflow: hidden;
+}
+.cssonly-slider > .slides .inner{
+    -webkit-transition:all 800ms cubic-bezier(0.770,0.000,0.175,1.000);
+    -o-transition:all 800ms cubic-bezier(0.770,0.000,0.175,1.000);
+    transition:all 800ms cubic-bezier(0.770,0.000,0.175,1.000);
+    -webkit-transition-timing-function:cubic-bezier(0.770,0.000,0.175,1.000);
+    -o-transition-timing-function:cubic-bezier(0.770,0.000,0.175,1.000);
+    transition-timing-function:cubic-bezier(0.770,0.000,0.175,1.000)
+}
+</style>
